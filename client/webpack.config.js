@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 module.exports = () => {
   return {
@@ -9,14 +10,11 @@ module.exports = () => {
       install: './src/js/install.js',
       cards: './src/js/cards.js'
     },
-    devServer: {
-      hot: 'only',
-    },
     plugins: [
       new HtmlWebpackPlugin({
         title: 'Client Server',
         template: './index.html',
-      })
+      }),
     ],
     module: {
       rules: [
@@ -27,7 +25,7 @@ module.exports = () => {
       ],
     },
     output: {
-      filename: 'bundle.js',
+      filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
       clean: true,
     },
