@@ -1,5 +1,6 @@
 import { Workbox } from 'workbox-window';
 import '../css/styles.css';
+import '/database.js';
 
 // Check if service workers are supported
 if ('serviceWorker' in navigator) {
